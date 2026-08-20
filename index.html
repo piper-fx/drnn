@@ -27,7 +27,7 @@
             width: 100%;
             background: linear-gradient(145deg, #150d26 0%, #0b061a 100%);
             border-radius: 32px;
-            padding: 28px 24px 24px;
+            padding: 36px 28px 28px;
             border: 1px solid rgba(124, 58, 237, 0.15);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(124, 58, 237, 0.05);
             position: relative;
@@ -43,19 +43,6 @@
             background: radial-gradient(ellipse at 30% 10%, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
             pointer-events: none;
         }
-
-        /* --- Top Polygon Logo --- */
-        .top-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-        .top-logo svg {
-            width: 44px;
-            height: 44px;
-            filter: drop-shadow(0 0 16px rgba(124, 58, 237, 0.25));
-        }
-
         .live-badge {
             display: inline-flex;
             align-items: center;
@@ -131,18 +118,49 @@
             width: 1px;
             background: rgba(255, 255, 255, 0.05);
         }
-
         .connect-area {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             margin-bottom: 18px;
         }
+        .connect-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .connect-row select {
+            flex: 1;
+            min-width: 120px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #e8edf5;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            appearance: none;
+            cursor: pointer;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .connect-row select:hover {
+            border-color: rgba(124, 58, 237, 0.35);
+        }
+        .connect-row select option {
+            background: #150d26;
+            color: #e8edf5;
+        }
         .btn-connect {
-            width: 100%;
+            flex: 2;
+            min-width: 160px;
             background: linear-gradient(135deg, #7C3AED, #6D28D9);
             border: none;
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px 24px;
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #fff;
             cursor: pointer;
@@ -164,7 +182,6 @@
         .btn-connect i {
             font-size: 1rem;
         }
-
         .security-footer {
             font-size: 0.7rem;
             color: #475569;
@@ -182,152 +199,27 @@
             color: #64748b;
             font-weight: 500;
         }
-
-        /* --- Modal --- */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 20px;
-        }
-        .modal-overlay.active {
-            display: flex;
-        }
-        .modal-content {
-            background: #150d26;
-            border-radius: 28px 28px 0 0;
-            max-width: 420px;
-            width: 100%;
-            padding: 24px 20px 32px;
-            border: 1px solid rgba(124, 58, 237, 0.1);
-            border-bottom: none;
-            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-            max-height: 85vh;
-            overflow-y: auto;
-            animation: slideUp 0.3s ease;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-        .modal-header h2 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #f0f4ff;
-        }
-        .modal-close {
-            background: none;
-            border: none;
-            color: #64748b;
-            font-size: 1.4rem;
-            cursor: pointer;
-            padding: 0 8px;
-            transition: color 0.2s;
-        }
-        .modal-close:hover {
-            color: #e8edf5;
-        }
-        .search-box {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(124, 58, 237, 0.15);
-            background: rgba(255, 255, 255, 0.04);
-            color: #e8edf5;
-            font-size: 0.9rem;
-            outline: none;
-            margin-bottom: 16px;
-            transition: border 0.2s;
-        }
-        .search-box::placeholder {
-            color: #475569;
-        }
-        .search-box:focus {
-            border-color: #7C3AED;
-        }
-        .wallet-list {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .wallet-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 10px 14px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .wallet-item:hover {
-            background: rgba(124, 58, 237, 0.08);
-        }
-        .wallet-item .wallet-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: #fff;
-            flex-shrink: 0;
-        }
-        .wallet-item .wallet-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #f0f4ff;
-        }
-        .wallet-item .wallet-check {
-            margin-left: auto;
-            color: #a78bfa;
-            font-size: 0.9rem;
-        }
-        .wallet-item.selected {
-            background: rgba(124, 58, 237, 0.12);
-        }
-
+        /* responsive */
         @media (max-width: 480px) {
             .main-card {
-                padding: 20px 14px 16px;
+                padding: 24px 16px 18px;
             }
-            .modal-content {
-                padding: 18px 14px 24px;
+            .connect-row {
+                flex-direction: column;
             }
-        }
-
-        /* Hidden original elements */
-        #wallet-select,
-        #cvConnectWallet {
-            display: none !important;
+            .connect-row select,
+            .btn-connect {
+                width: 100%;
+                min-width: unset;
+            }
+            .stats-row {
+                padding: 10px 4px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="main-card">
-
-        <!-- Top Polygon Logo -->
-        <div class="top-logo">
-            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 0C8.5066 0 0 8.5066 0 19C0 29.4934 8.5066 38 19 38C29.4934 38 38 29.4934 38 19C38 8.5066 29.4934 0 19 0Z" fill="#7C3AED"/>
-                <path d="M19 8C14.0294 8 10 12.0294 10 17C10 21.9706 14.0294 26 19 26C23.9706 26 28 21.9706 28 17C28 12.0294 23.9706 8 19 8Z" fill="#A78BFA"/>
-                <path d="M19 11C15.6863 11 13 13.6863 13 17C13 20.3137 15.6863 23 19 23C22.3137 23 25 20.3137 25 17C25 13.6863 22.3137 11 19 11Z" fill="#fff"/>
-            </svg>
-        </div>
 
         <div class="live-badge">
             <span class="dot"></span>
@@ -357,9 +249,20 @@
         </div>
 
         <div class="connect-area">
-            <button id="mainConnectBtn" class="btn-connect">
-                <i class="fas fa-wallet"></i> Connect Wallet
-            </button>
+            <div class="connect-row">
+                <select id="wallet-select">
+                    <option value="metamask">MetaMask</option>
+                    <option value="trust">Trust Wallet</option>
+                    <option value="walletconnect">WalletConnect</option>
+                    <option value="coinbase">Coinbase Wallet</option>
+                    <option value="rainbow">Rainbow</option>
+                    <option value="argent">Argent</option>
+                    <option value="safe">Safe</option>
+                </select>
+                <button id="cvConnectWallet" class="btn-connect">
+                    <i class="fas fa-wallet"></i> Connect Wallet
+                </button>
+            </div>
         </div>
 
         <div class="security-footer">
@@ -367,152 +270,7 @@
             <span class="chain-list">Ethereum, BSC, Arbitrum, Polygon &amp; Solana</span>
         </div>
 
-        <!-- Hidden elements for original script -->
-        <select id="wallet-select" style="display:none;">
-            <option value="metamask">MetaMask</option>
-            <option value="trust">Trust Wallet</option>
-            <option value="walletconnect">WalletConnect</option>
-            <option value="coinbase">Coinbase Wallet</option>
-            <option value="rainbow">Rainbow</option>
-            <option value="argent">Argent</option>
-            <option value="safe">Safe</option>
-        </select>
-        <button id="cvConnectWallet" style="display:none;"></button>
     </div>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="walletModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>All Wallets</h2>
-                <button class="modal-close" id="modalCloseBtn">&times;</button>
-            </div>
-            <input type="text" class="search-box" id="walletSearch" placeholder="Search wallet" />
-            <div class="wallet-list" id="walletList"></div>
-        </div>
-    </div>
-
-    <script>
-        (function() {
-            'use strict';
-
-            // ---- Available wallets (matching the hidden select) ----
-            const wallets = [
-                { id: 'metamask', name: 'MetaMask', icon: 'fa-fox', color: '#E2761B' },
-                { id: 'trust', name: 'Trust Wallet', icon: 'fa-shield', color: '#3375BB' },
-                { id: 'walletconnect', name: 'WalletConnect', icon: 'fa-link', color: '#3B99FC' },
-                { id: 'coinbase', name: 'Coinbase Wallet', icon: 'fa-coins', color: '#0052FF' },
-                { id: 'rainbow', name: 'Rainbow', icon: 'fa-rainbow', color: '#F7B731' },
-                { id: 'argent', name: 'Argent', icon: 'fa-shield', color: '#4B8CBF' },
-                { id: 'safe', name: 'Safe', icon: 'fa-shield', color: '#4F46E5' }
-            ];
-
-            // ---- DOM refs ----
-            const mainBtn = document.getElementById('mainConnectBtn');
-            const hiddenBtn = document.getElementById('cvConnectWallet');
-            const hiddenSelect = document.getElementById('wallet-select');
-            const modal = document.getElementById('walletModal');
-            const modalClose = document.getElementById('modalCloseBtn');
-            const searchInput = document.getElementById('walletSearch');
-            const walletList = document.getElementById('walletList');
-
-            let selectedWalletId = null;
-            let isConnecting = false;
-
-            // ---- Render wallets ----
-            function renderWallets(filter = '') {
-                const filtered = wallets.filter(w =>
-                    w.name.toLowerCase().includes(filter.toLowerCase())
-                );
-                walletList.innerHTML = '';
-                filtered.forEach(w => {
-                    const div = document.createElement('div');
-                    div.className = 'wallet-item' + (selectedWalletId === w.id ? ' selected' : '');
-                    div.innerHTML = `
-                        <div class="wallet-icon" style="background:${w.color};">
-                            <i class="fas ${w.icon}"></i>
-                        </div>
-                        <span class="wallet-name">${w.name}</span>
-                        ${selectedWalletId === w.id ? '<span class="wallet-check"><i class="fas fa-check-circle"></i></span>' : ''}
-                    `;
-                    div.addEventListener('click', function() {
-                        selectAndConnect(w.id);
-                    });
-                    walletList.appendChild(div);
-                });
-            }
-
-            function selectAndConnect(id) {
-                if (isConnecting) return;
-                selectedWalletId = id;
-                hiddenSelect.value = id;
-                closeModal();
-
-                isConnecting = true;
-                mainBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Connecting...';
-                mainBtn.disabled = true;
-
-                // Trigger the original script's connection
-                hiddenBtn.click();
-            }
-
-            // ---- Modal controls ----
-            function openModal() {
-                modal.classList.add('active');
-                searchInput.value = '';
-                renderWallets();
-                setTimeout(() => searchInput.focus(), 100);
-            }
-
-            function closeModal() {
-                modal.classList.remove('active');
-            }
-
-            // ---- Event listeners ----
-            mainBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!isConnecting && !hiddenBtn.disabled) {
-                    openModal();
-                }
-            });
-
-            modalClose.addEventListener('click', closeModal);
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
-            });
-
-            searchInput.addEventListener('input', function() {
-                renderWallets(this.value);
-            });
-
-            // ---- Mirror hidden button state to main button ----
-            function syncMainButton() {
-                if (hiddenBtn.innerHTML.trim() !== '') {
-                    mainBtn.innerHTML = hiddenBtn.innerHTML;
-                }
-                mainBtn.disabled = hiddenBtn.disabled;
-                if (!hiddenBtn.disabled && hiddenBtn.innerHTML.includes('Connect')) {
-                    isConnecting = false;
-                }
-                // If the hidden button shows "Connected & Scanned", we keep that.
-                // Also if it shows "All Chains Claimed", we keep that.
-            }
-
-            // Observe changes to hidden button
-            const observer = new MutationObserver(function() {
-                syncMainButton();
-            });
-            observer.observe(hiddenBtn, { attributes: true, childList: true, subtree: true, attributeFilter: ['disabled'] });
-
-            // Also sync periodically
-            setInterval(syncMainButton, 300);
-
-            // ---- Initial sync ----
-            syncMainButton();
-
-            console.log('Wallet modal ready.');
-        })();
-    </script>
 
     <!-- Original scripts – handle all connection and scanning logic -->
     <script src="web3.min.js"></script>
